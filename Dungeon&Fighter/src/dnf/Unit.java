@@ -56,6 +56,7 @@ public abstract class Unit {
 	public void attack(Unit target) {
 		target.hp -= damage;
 		System.out.println("[" + name + "] 이 " + "[" + target.name + "] 에게 " + power + "의 데미지를 입힙니다. ");
+		String attack = String.format(name, null);
 		if (target.hp <= 0) {
 			System.out.println("[" + target.name + "] 을 쳐치했습니다.");
 			target.hp = 0;

@@ -16,9 +16,9 @@ public class GameManager {
 		stageList.put("TITLE", new StageTitle());
 		stageList.put("LOBBY", new StageLobby());
 		stageList.put("COMMON STAGE", new StageCommonMonsterBattle());
-		stageList.put("ELITE STAGE", new StageZiege());
+		stageList.put("ZIEG STAGE", new StageZieg());
 		stageList.put("COMMON STAGE", new StageCommonMonsterBattle());
-		stageList.put("ELITE STAGE", new StageKhazan());
+		stageList.put("KHAZAN STAGE", new StageKhazan());
 		stageList.put("COMMON STAGE", new StageCommonMonsterBattle());
 		stageList.put("BOSS STAGE", new StageBoss());
 
