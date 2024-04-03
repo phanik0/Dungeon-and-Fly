@@ -7,10 +7,10 @@ public abstract class Unit {
 	String name;
 	String state = "³ë¸»";
 
-	Unit() {
+	public Unit() {
 	};
 
-	Unit(String na, int max, int pw) {
+	public Unit(String na, int max, int pw) {
 		name = na;
 		maxhp = max;
 		curhp = max;

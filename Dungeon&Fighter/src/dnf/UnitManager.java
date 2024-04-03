@@ -1,37 +1,41 @@
 package dnf;
+
 import java.util.Random;
 import java.util.Vector;
 
 public class UnitManager {
 
-	Vector<Player> player_list = new Vector<>();
-	Vector<Unit> mon_list = new Vector<>();
-	String path = "dnf."; // 패키지명 + .
-	String mons[] = { "UnitKhazan", "UnitOzma", "UnitZeig" };
-	Random ran = new Random();
+	public Vector<Player> player_list = new Vector<>();
+	public Vector<Unit> monster_list = new Vector<>();
+	private String path = "dnf."; // 패키지명 + .
+	private String commonMonster[] = { "UnitHollowZombie", "UnitImposter", "UnitPioneers" };
+	private Random ran = new Random();
 
 	UnitManager() {
-		player_list.add(new Player("전사", 1000, 45));
-		player_list.add(new Player("마법사", 800, 60));
-		player_list.add(new Player("힐러", 500, 70));
+		player_list.add(new PlayerStriker());
+		player_list.add(new PlayerNenMaster());
+		player_list.add(new PlayerSaint());
+		player_list.add(new PlayerWeaponMaster());
 	}
 
-	void monster_rand_set(int size) {
+	public void setCommonMonster(int size) {
 		for (int i = 0; i < size; i++) {
-			int num = ran.nextInt(mons.length);
+			int num = ran.nextInt(commonMonster.length);
 			try {
-				Class<?> clazz = Class.forName(path + mons[num]);
+				Class<?> clazz = Class.forName(path + commonMonster[num]);
 				Object obj = clazz.getDeclaredConstructor().newInstance(); // clazz.newInstance();
 				Unit temp = (Unit) obj;
 				int hp = ran.nextInt(100) + 100;
 				int pow = ran.nextInt(10) + 10;
 				temp.init(hp, pow);
-				mon_list.add(temp);
+				monster_list.add(temp);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 			// System.out.println(mon_list.get(i).name);
 		}
 	}
+
+
 
 }

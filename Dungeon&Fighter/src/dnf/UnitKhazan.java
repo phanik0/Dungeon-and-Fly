@@ -1,8 +1,11 @@
 package dnf;
 
 public class UnitKhazan extends Unit{
-	UnitKhazan() {
+	public UnitKhazan() {
 		name = "Ä«ÀÜ";
+		maxhp = 3000;
+		curhp = maxhp;
+		power = 100;
 	}
 
 	void skill() {

@@ -1,12 +1,12 @@
 package dnf;
-public class Player extends Unit {
+abstract public class Player extends Unit {
 
 	Player(String na, int max, int pow) {
 		super(na, max, pow);
 	}
 
-	void skill() {
+	abstract void skill(Unit unit); 
 
-	}
+	
 
 }

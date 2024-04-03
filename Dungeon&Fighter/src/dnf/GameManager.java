@@ -5,22 +5,27 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class GameManager {
-	Random ran = new Random();
+	private Random ran = new Random();
 	protected static Scanner scan = new Scanner(System.in);
-	static String nextStage = "";
-	String curStage = "";
-	Map<String, Stage> stageList = new HashMap<String, Stage>();
+	protected static String nextStage = "";
+	private String curStage = "";
+	private Map<String, Stage> stageList = new HashMap<String, Stage>();
 
-	GameManager() {
+	public GameManager() {
 
 		stageList.put("TITLE", new StageTitle());
-		stageList.put("BATTLE", new StageBattle());
 		stageList.put("LOBBY", new StageLobby());
+		stageList.put("COMMON STAGE", new StageCommonMonsterBattle());
+		stageList.put("ELITE STAGE", new StageZiege());
+		stageList.put("COMMON STAGE", new StageCommonMonsterBattle());
+		stageList.put("ELITE STAGE", new StageKhazan());
+		stageList.put("COMMON STAGE", new StageCommonMonsterBattle());
+		stageList.put("BOSS STAGE", new StageBoss());
 
 		nextStage = "TITLE";
 	}
-
-	boolean changeStage() {
+	
+	public boolean changeStage() {
 		System.out.println("curStage : " + curStage);
 		System.out.println("nextStage : " + nextStage);
 

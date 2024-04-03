@@ -1,28 +1,41 @@
 package dnf;
 
 import java.util.Random;
+import java.util.Scanner;
 import java.util.Vector;
 
-public class StageBattle extends Stage {
-	UnitManager unitManager = new UnitManager();
-	Vector<Player> playerList = null;
-	Vector<Unit> monList = null;
-	Random ran = new Random();
-	int monDead = 0;
-	int playerDead = 0;
+public class StageCommonMonsterBattle extends Stage {
+	private Scanner scan = new Scanner(System.in);
+	private UnitManager unitManager = new UnitManager();
+	private Vector<Player> playerList;;
+	private Vector<Unit> monList;
+	private Random ran = new Random();
+	private int monDead;
+	private int playerDead;
 
 	public void init() {
-		unitManager.mon_list.clear();
-		unitManager.monster_rand_set(4);
+		unitManager.monster_list.clear();
+		unitManager.setCommonMonster(4);
 		playerList = null;
 		playerList = unitManager.player_list;
 		monList = null;
-		monList = unitManager.mon_list;
+		monList = unitManager.monster_list;
 		monDead = monList.size();
 		playerDead = playerList.size();
 	}
 
-	void print_character() {
+	private int inputNumber(String message) {
+		System.out.println(message);
+		int number = 0;
+		try {
+			String input = scan.next();
+			number = Integer.parseInt(input);
+		} catch (Exception e) {
+			System.err.println("숫자만 입력해주세요");
+		}
+		return number;
+	}
+	private void print_character() {
 		System.out.println("======[BATTLE]======");
 		// System.out.println(playerSize + " " + monSize);
 		System.out.println("======[PLAYER]======");
@@ -44,8 +57,11 @@ public class StageBattle extends Stage {
 		int sel = GameManager.scan.nextInt();
 		if (sel == 1) {
 			while (true) {
-				int idx = ran.nextInt(monList.size());
-
+				int idx = inputNumber("공격할 대상을 선택해주세요");
+				if(idx <1 || idx > monList.size()) {
+					System.err.println("올바른 대상을 선택해주세요");
+					continue;
+				}
 				if (monList.get(idx).curhp > 0) {
 					p.attack(monList.get(idx));
 					break;
