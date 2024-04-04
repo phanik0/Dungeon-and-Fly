@@ -2,7 +2,7 @@ package dnf;
 
 public class UnitAstaros extends Unit{
 	UnitAstaros() {
-		super("아스타로스",3000,100);
+		super("아스타로스",3000,100,20);
 		
 	}
 

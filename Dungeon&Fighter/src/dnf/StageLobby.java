@@ -15,22 +15,25 @@ public class StageLobby extends Stage {
 				selectDungeon();
 			} else if (sel == 2) {
 				shop.shopManager();
+				break;
 			} else if (sel == 3) {
 				//manager.player.inventoryMenu();
+				break;
 			} else if (sel == 4) {
 				//manager.player.guildMenu();
+				break;
 
 			} else if (sel == 5) {
-
 				GameManager.nextStage = "SETTING";
+				break;
+
 			} else {
 				GameManager.nextStage = "";
 				break;
 			}
 		}
 		GameManager.scan.close();
-		printDungeon();
-		selectDungeon();
+		
 		return false;
 	}
 

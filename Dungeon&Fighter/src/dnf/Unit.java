@@ -4,6 +4,9 @@ public abstract class Unit {
 	private int hp;
 	private int maxHp;
 	private int damage;
+	private int level;
+	private int exp;
+	private int def;
 	private String name;
 	private String state = "³ë¸»";
 
@@ -12,15 +15,20 @@ public abstract class Unit {
 	public Unit(String name) {
 		this.name = name;
 	}
-	public Unit(String name, int max, int damage) {
+	
+	public Unit(String name, int max, int damage,int def) {
 		this.name = name;
 		this.maxHp = max;
 		this.hp = max;
 		this.damage = damage;
+		this.def = def;
+		this.level = 0;
+		this.exp = 0;
 	}
 	public int getHp() {
 		return this.hp;
 	}
+	
 	public void setHp(int hp) {
 		this.hp = hp;
 	}
@@ -41,6 +49,24 @@ public abstract class Unit {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public int getLevel() {
+		return level;
+	}
+	public void setLevel(int level) {
+		this.level = level;
+	}
+	public int getExp() {
+		return exp;
+	}
+	public void setExp(int exp) {
+		this.exp = exp;
+	}
+	public int getDef() {
+		return def;
+	}
+	public void setDef(int def) {
+		this.def = def;
 	}
 	public void init(int max, int damage) {
 		this.maxHp = max;

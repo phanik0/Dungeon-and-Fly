@@ -2,8 +2,8 @@ package dnf;
 
 public class PlayerStriker extends Player{
 
-	public PlayerStriker() {
-		super("패황", 1200, 120);
+	public PlayerStriker(String name) {
+		super(name, 1200, 120,60,"패황");
 		// TODO Auto-generated constructor stub
 	}
 

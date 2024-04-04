@@ -2,8 +2,8 @@ package dnf;
 
 public class PlayerNenMaster extends Player{
 
-	PlayerNenMaster() {
-		super("¿°Á¦", 800, 60);
+	PlayerNenMaster(String name) {
+		super(name, 1200, 120,20,"¿°Á¦");
 		// TODO Auto-generated constructor stub
 	}
 

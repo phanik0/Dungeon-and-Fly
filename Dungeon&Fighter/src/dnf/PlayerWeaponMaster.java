@@ -2,8 +2,8 @@ package dnf;
 
 public class PlayerWeaponMaster extends Player {
 
-	PlayerWeaponMaster() {
-		super("검신", 1000, 100);
+	PlayerWeaponMaster(String name) {
+		super(name, 1200, 120,60,"검신");
 		// TODO Auto-generated constructor stub
 	}
 

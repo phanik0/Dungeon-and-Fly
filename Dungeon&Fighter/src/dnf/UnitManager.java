@@ -12,10 +12,10 @@ public class UnitManager {
 	private Random ran = new Random();
 	
 	public UnitManager() {
-		player_list.add(new PlayerStriker());
-		player_list.add(new PlayerNenMaster());
-		player_list.add(new PlayerSaint());
-		player_list.add(new PlayerWeaponMaster());
+		player_list.add(new PlayerStriker("GunB"));
+		player_list.add(new PlayerNenMaster("Earth"));
+		player_list.add(new PlayerSaint("Planet"));
+		player_list.add(new PlayerWeaponMaster("·¹³ì¸óÂ÷"));
 	}
 
 	public void setCommonMonster(int size) {

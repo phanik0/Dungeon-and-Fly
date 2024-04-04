@@ -2,7 +2,7 @@ package dnf;
 
 public class UnitOzma extends Unit{
 	UnitOzma() {
-		super("»•µ∑¿« Ω≈ ø¿¡Ó∏∂",13000,150);
+		super("»•µ∑¿« Ω≈ ø¿¡Ó∏∂",13000,150,40);
 
 	}
 
