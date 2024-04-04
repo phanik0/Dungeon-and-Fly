@@ -81,15 +81,7 @@ public abstract class Unit {
 		damage = pw;
 	}
 
-	public void attack(Unit target) {
-		target.hp -= damage;
-		System.out.println("[" + name + "] 이 " + "[" + target.name + "] 에게 " + damage + "의 데미지를 입힙니다. ");
-		String attack = String.format(name, null);
-		if (target.hp <= 0) {
-			System.out.println("[" + target.name + "] 을 쳐치했습니다.");
-			target.hp = 0;
-		}
-	}
+	
 	@Override
 	public String toString() {
 		return String.format("[%s][%s/%s][%d]", name,hp,maxHp,damage);

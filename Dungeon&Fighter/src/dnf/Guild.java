@@ -12,10 +12,11 @@ public Unit[] partyList;
 // 파티원 교체
 //정렬
 private void setGuild() {
-	guildMember.add(new PlayerStriker());
-	guildMember.add(new PlayerNenMaster());
-	guildMember.add(new PlayerSaint());
-	guildMember.add(new PlayerWeaponMaster());
-
+	for(int i = 0 ; i<UnitManager.player_list.size();i++) {
+		Player player = UnitManager.player_list.get(i);
+		guildMember.add(player);
+	}
 }
+
+
 }

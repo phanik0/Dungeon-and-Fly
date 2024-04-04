@@ -1,6 +1,6 @@
 package dnf;
 
-public class UnitOzma extends Unit{
+public class UnitOzma extends Monster{
 	UnitOzma() {
 		super("»•µ∑¿« Ω≈ ø¿¡Ó∏∂",13000,150,40);
 
