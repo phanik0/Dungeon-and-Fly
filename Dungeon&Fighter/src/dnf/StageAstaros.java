@@ -16,6 +16,7 @@ public class StageAstaros extends Stage {
 	public void init() {
 		playerDead = StageSetting.playerList.size();
 		astaros = new UnitAstaros();
+		monDead = 1;
 	}
 
 	private int inputNumber(String message) {
@@ -117,6 +118,10 @@ public class StageAstaros extends Stage {
 				break;
 		}
 		isAstarosClear = true;
+		System.out.println("[비극의 도시 엘레리논을 클리어 하였습니다 마을로 돌아갑니다]");
+
+		GameManager.nextStage = "LOBBY";
+
 		return false;
 	}
 

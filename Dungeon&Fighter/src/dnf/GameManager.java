@@ -32,10 +32,7 @@ public class GameManager {
 
 		if (curStage.equals(nextStage))
 			return true;
-		if(Stage.stageClearCount>0) {
-		Stage clear = stageList.get(curStage);
-		clear.setIsClear(true);
-		}
+		
 		curStage = nextStage;
 		Stage stage = stageList.get(curStage);
 		stage.init();
