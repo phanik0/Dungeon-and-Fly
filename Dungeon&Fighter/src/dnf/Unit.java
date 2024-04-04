@@ -9,7 +9,9 @@ public abstract class Unit {
 
 	public Unit() {
 	}
-
+	public Unit(String name) {
+		this.name = name;
+	}
 	public Unit(String name, int max, int damage) {
 		this.name = name;
 		this.maxHp = max;
@@ -55,7 +57,7 @@ public abstract class Unit {
 
 	public void attack(Unit target) {
 		target.hp -= damage;
-		System.out.println("[" + name + "] 이 " + "[" + target.name + "] 에게 " + power + "의 데미지를 입힙니다. ");
+		System.out.println("[" + name + "] 이 " + "[" + target.name + "] 에게 " + damage + "의 데미지를 입힙니다. ");
 		String attack = String.format(name, null);
 		if (target.hp <= 0) {
 			System.out.println("[" + target.name + "] 을 쳐치했습니다.");

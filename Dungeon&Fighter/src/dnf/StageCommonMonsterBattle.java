@@ -8,8 +8,12 @@ public class StageCommonMonsterBattle extends Stage {
 	private Scanner scan = new Scanner(System.in);
 	private Random ran = new Random();
 	private UnitManager unitManager = new UnitManager();
-	private Vector<Player> playerList;;
+	private Vector<Player> playerList;
 	private Vector<Unit> monList;
+	public static int name;
+	public static boolean dooms;
+	public static boolean silence;
+	
 	private int monDead;
 	private int playerDead;
 
@@ -35,6 +39,7 @@ public class StageCommonMonsterBattle extends Stage {
 		}
 		return number;
 	}
+
 	private void print_character() {
 		System.out.println("======[BATTLE]======");
 		// System.out.println(playerSize + " " + monSize);
@@ -52,20 +57,20 @@ public class StageCommonMonsterBattle extends Stage {
 
 	private void attackPlayer(int index) {
 		Player player = playerList.get(index);
-		if (player.getHp()<= 0)
+		if (player.getHp() <= 0)
 			return;
 		System.out.println("======[메뉴 선택]=====");
 		System.out.println("[" + player.getName() + "] [1.일반공격] [2.스킬]");
 		int sel = GameManager.scan.nextInt();
 		if (sel == 1) {
 			while (true) {
-				int idx = inputNumber("공격할 대상을 선택해주세요");
-				if(idx <1 || idx > monList.size()) {
+				int idx = inputNumber("공격할 대상을 선택해주세요")-1;
+				if (idx < 0 || idx >= monList.size()) {
 					System.err.println("올바른 대상을 선택해주세요");
 					continue;
 				}
-				if (monList.get(idx).getHp()> 0) {
-					player.attack(monList.get(idx));//캐릭별로 대사랑 데미지 만들어보기
+				if (monList.get(idx).getHp() > 0) {
+					player.attack(monList.get(idx));// 캐릭별로 대사랑 데미지 만들어보기
 					break;
 				}
 			}
@@ -79,8 +84,8 @@ public class StageCommonMonsterBattle extends Stage {
 			return;
 		while (true) {
 			int idx = ran.nextInt(playerList.size());
-			if (playerList.get(idx).getHp()> 0) {
-				monster.attack(playerList.get(idx));//몬스터도 게이지 차면 스킬쓰기
+			if (playerList.get(idx).getHp() > 0) {
+				monster.attack(playerList.get(idx));// 몬스터도 게이지 차면 스킬쓰기
 				break;
 			}
 		}
@@ -89,7 +94,7 @@ public class StageCommonMonsterBattle extends Stage {
 	private void check_live() {
 		int num = 0;
 		for (int i = 0; i < playerList.size(); i++) {
-			if (playerList.get(i).getHp()<= 0) {
+			if (playerList.get(i).getHp() <= 0) {
 				num += 1;
 			}
 		}
@@ -136,13 +141,14 @@ public class StageCommonMonsterBattle extends Stage {
 			if (monDead <= 0 || playerDead <= 0)
 				break;
 		}
-		if(!StageKhazan.isKhazanClear)
-		GameManager.nextStage = "KHZAN STAGE";
-		else if(!StageZieg.isZiegClear)
-			GameManager.nextStage = "ZIEG STAGE";
-		else
-			GameManager.nextStage = "BOSS STAGE";
-			
+			if(name == 1) {
+				dooms = true;
+			}else if(name == 2) {
+				silence = true;
+			}
+			Stage.stageClearCount++;
+			GameManager.nextStage = "LOBBY";
+		
 		return false;
 	}
 }

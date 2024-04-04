@@ -2,6 +2,6 @@ package dnf;
 
 public class UnitPioneers extends Unit{
 	UnitPioneers() {
-		name = "인도자";
+		super("인도자");
 	}
 }

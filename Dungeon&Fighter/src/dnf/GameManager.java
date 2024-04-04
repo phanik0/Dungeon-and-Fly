@@ -10,19 +10,20 @@ public class GameManager {
 	protected static String nextStage = "";
 	private String curStage = "";
 	private Map<String, Stage> stageList = new HashMap<String, Stage>();
-
+	private StageSetting set;
 	public GameManager() {
-
+		
 		stageList.put("TITLE", new StageTitle());
 		stageList.put("LOBBY", new StageLobby());
-		stageList.put("COMMON STAGE", new StageCommonMonsterBattle());
-		stageList.put("ZIEG STAGE", new StageZieg());
-		stageList.put("COMMON STAGE", new StageCommonMonsterBattle());
-		stageList.put("KHAZAN STAGE", new StageKhazan());
-		stageList.put("COMMON STAGE", new StageCommonMonsterBattle());
-		stageList.put("BOSS STAGE", new StageBoss());
+		stageList.put("ºñ±ØÀÇ µµ½Ã ¿¤·¹¸®³í", new StageAstaros());
+		stageList.put("ÆÄ¸êÀÇ ±æ¸ñ", new StageCommonMonsterBattle());
+		stageList.put("Ä§¹¬ÀÇ ½£", new StageCommonMonsterBattle());
+		stageList.put("°øÆ÷ÀÇ ´ëÁö", new StageKhazan());
+		stageList.put("È¥µ·ÀÇ ¿ÕÀÚ", new StageBoss());
 
 		nextStage = "TITLE";
+		set = new StageSetting();
+		set.init();
 	}
 	
 	public boolean changeStage() {
@@ -31,7 +32,10 @@ public class GameManager {
 
 		if (curStage.equals(nextStage))
 			return true;
-
+		if(Stage.stageClearCount>0) {
+		Stage clear = stageList.get(curStage);
+		clear.setIsClear(true);
+		}
 		curStage = nextStage;
 		Stage stage = stageList.get(curStage);
 		stage.init();

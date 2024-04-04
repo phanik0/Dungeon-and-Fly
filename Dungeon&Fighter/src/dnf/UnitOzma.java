@@ -2,7 +2,8 @@ package dnf;
 
 public class UnitOzma extends Unit{
 	UnitOzma() {
-		name = "ø¿¡Ó∏∂";
+		super("»•µ∑¿« Ω≈ ø¿¡Ó∏∂",13000,150);
+
 	}
 
 	void skill() {

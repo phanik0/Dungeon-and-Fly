@@ -2,6 +2,6 @@ package dnf;
 
 public class UnitImposter extends Unit{
 	UnitImposter() {
-		name = "위장자";
+		super("위장자");
 	}
 }

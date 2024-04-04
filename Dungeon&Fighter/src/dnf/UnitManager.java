@@ -5,13 +5,13 @@ import java.util.Vector;
 
 public class UnitManager {
 
-	public Vector<Player> player_list = new Vector<>();
+	public  Vector<Player> player_list = new Vector<>();
 	public Vector<Unit> monster_list = new Vector<>();
 	private String path = "dnf."; // 패키지명 + .
 	private String commonMonster[] = { "UnitHollowZombie", "UnitImposter", "UnitPioneers" };
 	private Random ran = new Random();
-
-	UnitManager() {
+	
+	public UnitManager() {
 		player_list.add(new PlayerStriker());
 		player_list.add(new PlayerNenMaster());
 		player_list.add(new PlayerSaint());

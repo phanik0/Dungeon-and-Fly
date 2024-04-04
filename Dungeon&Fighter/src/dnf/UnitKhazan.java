@@ -2,10 +2,8 @@ package dnf;
 
 public class UnitKhazan extends Unit{
 	public UnitKhazan() {
-		name = "朝接";
-		maxhp = 3000;
-		curhp = maxhp;
-		power = 100;
+		super("社瑚税重 朝接",5000,100);
+
 	}
 
 	void skill() {

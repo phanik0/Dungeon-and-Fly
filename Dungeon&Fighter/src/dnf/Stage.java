@@ -1,7 +1,7 @@
 package dnf;
 public abstract class Stage {
 	private boolean isClear;
-	
+	public static int stageClearCount;
 	public Stage() {
 		isClear = false;
 	}

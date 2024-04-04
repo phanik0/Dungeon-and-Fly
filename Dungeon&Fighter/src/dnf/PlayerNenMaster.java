@@ -7,4 +7,10 @@ public class PlayerNenMaster extends Player{
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public void skill(Unit unit) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
