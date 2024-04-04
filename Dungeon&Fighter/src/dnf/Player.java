@@ -1,9 +1,9 @@
 package dnf;
 abstract public class Player extends Unit {
 	private int atttackGauge;
-	
-	public Player(String na, int max, int pow) {
-		super(na, max, pow);
+	public static int gold;
+	public Player(String name, int maxHp, int damage) {
+		super(name, maxHp, damage);
 	}
 	
 	public abstract void skill(Unit unit); 

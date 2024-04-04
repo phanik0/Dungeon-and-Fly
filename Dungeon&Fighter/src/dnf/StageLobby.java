@@ -14,11 +14,11 @@ public class StageLobby extends Stage {
 				printDungeon();
 				selectDungeon();
 			} else if (sel == 2) {
-				shop.shopMng();
+				shop.shopManager();
 			} else if (sel == 3) {
-				manager.player.inventoryMenu();
+				//manager.player.inventoryMenu();
 			} else if (sel == 4) {
-				manager.player.guildMenu();
+				//manager.player.guildMenu();
 
 			} else if (sel == 5) {
 
@@ -113,7 +113,7 @@ public class StageLobby extends Stage {
 	@Override
 	public void init() {
 		// TODO Auto-generated method stub
-
+		shop = new Shop();
 	}
 
 }

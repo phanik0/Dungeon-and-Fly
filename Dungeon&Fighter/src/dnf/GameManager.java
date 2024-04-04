@@ -10,7 +10,7 @@ public class GameManager {
 	protected static String nextStage = "";
 	private String curStage = "";
 	private Map<String, Stage> stageList = new HashMap<String, Stage>();
-	private StageSetting set;
+	private Inventory inven;
 	public GameManager() {
 		
 		stageList.put("SETTING", new StageSetting());
@@ -23,8 +23,7 @@ public class GameManager {
 		stageList.put("È¥µ·ÀÇ ¿ÕÀÚ", new StageBoss());
 
 		nextStage = "TITLE";
-		set = new StageSetting();
-		set.init();
+		inven = new Inventory();
 	}
 	
 	public boolean changeStage() {
