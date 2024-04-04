@@ -13,6 +13,7 @@ public class GameManager {
 	private StageSetting set;
 	public GameManager() {
 		
+		stageList.put("SETTING", new StageSetting());
 		stageList.put("TITLE", new StageTitle());
 		stageList.put("LOBBY", new StageLobby());
 		stageList.put("∫Ò±ÿ¿« µµΩ√ ø§∑π∏Æ≥Ì", new StageAstaros());

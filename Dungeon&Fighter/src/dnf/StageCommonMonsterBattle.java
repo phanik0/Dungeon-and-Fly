@@ -20,8 +20,7 @@ public class StageCommonMonsterBattle extends Stage {
 	public void init() {
 		unitManager.monster_list.clear();
 		unitManager.setCommonMonster(4);
-		playerList = null;
-		playerList = unitManager.player_list;
+		playerList = Stage.playerList;
 		monList = null;
 		monList = unitManager.monster_list;
 		monDead = monList.size();
