@@ -13,10 +13,10 @@ public class UnitManager {
 	
 	
 	public void init() {
-		player_list.add(new PlayerStriker("GunB"));
-		player_list.add(new PlayerNenMaster("Earth"));
-		player_list.add(new PlayerSaint("Planet"));
-		player_list.add(new PlayerWeaponMaster("·¹³ì¸óÂ÷"));
+		player_list.add(new PlayerStriker("GunB",true));
+		player_list.add(new PlayerNenMaster("Earth",true));
+		player_list.add(new PlayerSaint("Planet",true));
+		player_list.add(new PlayerWeaponMaster("·¹³ì¸óÂ÷",true));
 		
 	}
 	public void setCommonMonster(int size) {

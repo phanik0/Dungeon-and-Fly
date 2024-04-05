@@ -6,6 +6,10 @@ public class PlayerWeaponMaster extends Player {
 		super(name, 1200, 120,60,"검신");
 		// TODO Auto-generated constructor stub
 	}
+	PlayerWeaponMaster(String name,boolean isParty) {
+		super(name, 1200, 120,60,"검신",isParty);
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	public void skill(Unit unit) {

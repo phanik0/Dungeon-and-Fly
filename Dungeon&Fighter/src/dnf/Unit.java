@@ -12,6 +12,7 @@ public abstract class Unit {
 	private Item armor;
 	private Item accessory;
 	private String name;
+	private String job;
 	private String state = "노말";
 
 	public Unit() {
@@ -20,12 +21,13 @@ public abstract class Unit {
 		this.name = name;
 	}
 	
-	public Unit(String name, int max, int damage,int def) {
+	public Unit(String name, int max, int damage,int def,String job) {
 		this.name = name;
 		this.maxHp = max;
 		this.hp = max;
 		this.damage = damage;
 		this.def = def;
+		this.job = job;
 		this.level = 1;
 		this.exp = 0;
 		isParty = false;
@@ -140,7 +142,8 @@ public abstract class Unit {
 	
 	@Override
 	public String toString() {
-		return String.format("[%s][%s/%s][%d]", name,hp,maxHp,damage);
+		return String.format("[닉네임: %s][HP : %d/%d][공격력 : %d][방어력 : %d][직업 : %s][lv : %d]",
+				name,hp,maxHp,damage,def,job,level);
 	}
 	
 }

@@ -2,14 +2,14 @@ package dnf;
 
 public class PlayerNenMaster extends Player{
 
-	PlayerNenMaster() {
-		super("",1000, 120,20,"堪力");
+	PlayerNenMaster(String name) {
+		super(name,1000, 120,20,"堪力");
 		
 		// TODO Auto-generated constructor stub
 	}
 	
-	PlayerNenMaster(String name) {
-		super(name, 1000, 120,20,"堪力",true);
+	PlayerNenMaster(String name,boolean isParty) {
+		super(name, 1000, 120,20,"堪力",isParty);
 		
 		// TODO Auto-generated constructor stub
 	}
