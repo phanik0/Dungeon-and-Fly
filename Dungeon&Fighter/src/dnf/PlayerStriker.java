@@ -6,6 +6,10 @@ public class PlayerStriker extends Player{
 		super(name, 1200, 120,60,"패황");
 		// TODO Auto-generated constructor stub
 	}
+	public PlayerStriker(String name,boolean isParty) {
+		super(name, 1200, 120,60,"패황",isParty);
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	

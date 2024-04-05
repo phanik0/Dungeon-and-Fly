@@ -7,6 +7,10 @@ public abstract class Unit {
 	private int level;
 	private int exp;
 	private int def;
+	private boolean isParty;
+	private Item weapon;
+	private Item armor;
+	private Item accessory;
 	private String name;
 	private String state = "³ë¸»";
 
@@ -22,8 +26,25 @@ public abstract class Unit {
 		this.hp = max;
 		this.damage = damage;
 		this.def = def;
-		this.level = 0;
+		this.level = 1;
 		this.exp = 0;
+		isParty = false;
+		weapon = null;
+		armor = null;
+		accessory = null;
+	}
+	public Unit(String name, int max, int damage,int def,boolean isParty) {
+		this.name = name;
+		this.maxHp = max;
+		this.hp = max;
+		this.damage = damage;
+		this.def = def;
+		this.level = 1;
+		this.exp = 0;
+		this.isParty = isParty;
+		weapon = null;
+		armor = null;
+		accessory = null;
 	}
 	public int getHp() {
 		return this.hp;
@@ -68,6 +89,30 @@ public abstract class Unit {
 	public void setDef(int def) {
 		this.def = def;
 	}
+	public boolean getIsParty() {
+		return isParty;
+	}
+	public void setIsParty(boolean isParty) {
+		this.isParty = isParty;
+	}
+	public Item getWeapon() {
+		return weapon;
+	}
+	public void setWeapon(Item weapon) {
+		this.weapon = weapon;
+	}
+	public Item getArmor() {
+		return armor;
+	}
+	public void setArmor(Item armor) {
+		this.armor = armor;
+	}
+	public Item getAccessory() {
+		return accessory;
+	}
+	public void setAccessory(Item accessory) {
+		this.accessory = accessory;
+	}
 	public void init(int max, int damage) {
 		this.maxHp = max;
 		this.hp = max;
@@ -92,6 +137,7 @@ public abstract class Unit {
 		}
 		enemy.setHp(hp);
 	}
+	
 	@Override
 	public String toString() {
 		return String.format("[%s][%s/%s][%d]", name,hp,maxHp,damage);
