@@ -3,14 +3,13 @@ package dnf;
 import java.util.Vector;
 
 public abstract class Stage {
-	private UnitManager unitManager = new UnitManager();
 	public static Vector<Player> playerList;
 	private boolean isClear;
 	public static int stageClearCount =2;
 	public Stage() {
 		isClear = false;
 		playerList = null;
-		playerList = unitManager.player_list;
+		playerList = UnitManager.player_list;
 	}
 	public boolean getIsClear() {
 		return isClear;

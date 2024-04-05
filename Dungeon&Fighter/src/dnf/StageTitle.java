@@ -1,6 +1,7 @@
 package dnf;
 
 public class StageTitle extends Stage {
+	private UnitManager manager = new UnitManager();
 
 	@Override
 	public boolean update() {
@@ -14,6 +15,7 @@ public class StageTitle extends Stage {
 
 	@Override
 	public void init() {
+		manager.init();
 
 	}
 

@@ -75,13 +75,23 @@ public abstract class Unit {
 	}
 
 	public void init(String na, int max, int pw) {
-		name = na;
-		maxHp = max;
-		hp = max;
-		damage = pw;
+		this.name = na;
+		this.maxHp = max;
+		this.hp = max;
+		this.damage = pw;
 	}
 
-	
+	public void attack(Monster enemy) {
+		int hp = enemy.getHp();
+		hp -= damage;
+		System.out.println("[" + name + "] 이 " + "[" + enemy.getName() + "] 에게 " + damage + "의 데미지를 입힙니다. ");
+//		String attack = String.format(name, null);
+		if (hp <= 0) {
+			System.out.println("[" + name + "] 을 쳐치했습니다.");
+			hp = 0;
+		}
+		enemy.setHp(hp);
+	}
 	@Override
 	public String toString() {
 		return String.format("[%s][%s/%s][%d]", name,hp,maxHp,damage);

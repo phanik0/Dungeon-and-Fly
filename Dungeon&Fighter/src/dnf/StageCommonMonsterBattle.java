@@ -9,7 +9,7 @@ public class StageCommonMonsterBattle extends Stage {
 	private Random ran = new Random();
 	private UnitManager unitManager = new UnitManager();
 	private Vector<Player> playerList;
-	private Vector<Unit> monList;
+	private Vector<Monster> monList;
 	public static int name;
 	public static boolean dooms;
 	public static boolean silence;
@@ -20,6 +20,7 @@ public class StageCommonMonsterBattle extends Stage {
 	public void init() {
 		unitManager.monster_list.clear();
 		unitManager.setCommonMonster(4);
+		playerList = null;
 		playerList = Stage.playerList;
 		monList = null;
 		monList = unitManager.monster_list;
@@ -49,7 +50,7 @@ public class StageCommonMonsterBattle extends Stage {
 		}
 		System.out.println("======[MONSTER]======");
 		for (int i = 0; i < monList.size(); i++) {
-			Unit monster = monList.get(i);
+			Monster monster = monList.get(i);
 			System.out.println(monster);
 		}
 	}
@@ -78,7 +79,7 @@ public class StageCommonMonsterBattle extends Stage {
 	}
 
 	private void attackMonster(int index) {
-		Unit monster = monList.get(index);
+		Monster monster = monList.get(index);
 		if (monster.getHp() <= 0)
 			return;
 		while (true) {

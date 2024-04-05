@@ -7,14 +7,14 @@ public class StageKhazan extends Stage{
 	public static boolean isKhazanClear;
 	private Scanner scan = new Scanner(System.in);
 	private Random ran = new Random();
-	private Unit khazan;
+	private Monster khazan;
 
 	private int monDead;
 	private int playerDead;
 	@Override
 	public void init() {
 		playerDead = Stage.playerList.size();
-		khazan = new UnitKhazan();
+		khazan = new MonsterKhazan();
 		monDead = 1;
 		
 	}

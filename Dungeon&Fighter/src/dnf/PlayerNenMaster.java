@@ -3,7 +3,7 @@ package dnf;
 public class PlayerNenMaster extends Player{
 
 	PlayerNenMaster(String name) {
-		super(name, 1200, 120,20,"¿°Á¦");
+		super(name, 1000, 120,20,"¿°Á¦");
 		// TODO Auto-generated constructor stub
 	}
 

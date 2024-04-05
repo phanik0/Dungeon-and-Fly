@@ -3,7 +3,7 @@ package dnf;
 public class PlayerSaint extends Player{
 
 	PlayerSaint(String name) {
-		super(name, 1200, 120,100,"세인트");
+		super(name, 1500, 120,100,"세인트");
 		// TODO Auto-generated constructor stub
 	}
 

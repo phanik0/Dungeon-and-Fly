@@ -8,14 +8,14 @@ public class StageAstaros extends Stage {
 	public static boolean isAstarosClear;
 	private Scanner scan = new Scanner(System.in);
 	private Random ran = new Random();
-	private Unit astaros;
+	private Monster astaros;
 
 	private int monDead;
 	private int playerDead;
 
 	public void init() {
 		playerDead = Stage.playerList.size();
-		astaros = new UnitAstaros();
+		astaros = new MonsterAstaros();
 		monDead = 1;
 	}
 

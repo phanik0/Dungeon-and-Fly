@@ -1,8 +1,8 @@
 package dnf;
 
-public class UnitOzma extends Monster{
-	UnitOzma() {
-		super("È¥µ·ÀÇ ½Å ¿ÀÁî¸¶",13000,150,40);
+public class MonsterKhazan extends Unit{
+	public MonsterKhazan() {
+		super("¼Ò¸êÀÇ½Å Ä«ÀÜ",5000,100,40);
 
 	}
 

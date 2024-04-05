@@ -13,7 +13,7 @@ abstract public class Player extends Unit {
 	@Override
 	public String toString() {
 		return String.format("[닉네임: %s][HP : %d/%d][공격력 : %d][방어력 : %d][직업 : %s]",
-				this.getName(),this.getHp(),this.getDamage(),this.getDef(),job);
+				this.getName(),this.getHp(),this.getMaxHp(),this.getDamage(),this.getDef(),job);
 	}
 	
 

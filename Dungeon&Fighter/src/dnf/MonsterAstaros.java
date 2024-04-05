@@ -1,7 +1,7 @@
 package dnf;
 
-public class UnitAstaros extends Monster{
-	UnitAstaros() {
+public class MonsterAstaros extends Monster{
+	MonsterAstaros() {
 		super("아스타로스",3000,100,20);
 		
 	}

@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class StageBoss extends Stage {
 	private Scanner scan = new Scanner(System.in);
 	private Random ran = new Random();
-	private Unit ozma;
+	private Monster ozma;
 
 	private int monDead;
 	private int playerDead;
@@ -14,7 +14,7 @@ public class StageBoss extends Stage {
 	@Override
 	public void init() {
 		playerDead = StageSetting.playerList.size();
-		ozma = new UnitOzma();
+		ozma = new MonsterOzma();
 
 	}
 
@@ -53,8 +53,8 @@ public class StageBoss extends Stage {
 		if (ozma.getHp() <= 0)
 			return;
 		while (true) {
-			int idx = ran.nextInt(StageSetting.playerList.size());
-			if (StageSetting.playerList.get(idx).getHp() > 0) {
+			int idx = ran.nextInt(Stage.playerList.size());
+			if (Stage.playerList.get(idx).getHp() > 0) {
 				ozma.attack(StageSetting.playerList.get(idx));// 몬스터도 게이지 차면 스킬쓰기
 				break;
 			}

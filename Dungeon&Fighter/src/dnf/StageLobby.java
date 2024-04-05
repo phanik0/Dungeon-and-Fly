@@ -13,6 +13,7 @@ public class StageLobby extends Stage {
 			if (sel == 1) {
 				printDungeon();
 				selectDungeon();
+				break;
 			} else if (sel == 2) {
 				shop.shopManager();
 				break;
@@ -32,7 +33,6 @@ public class StageLobby extends Stage {
 				break;
 			}
 		}
-		GameManager.scan.close();
 		
 		return false;
 	}
