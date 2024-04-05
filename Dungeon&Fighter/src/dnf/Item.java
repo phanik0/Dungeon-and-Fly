@@ -2,6 +2,11 @@ package dnf;
 
 public class Item {
 	public static final int WEAPON = 1;
+	public static final int GUN = 1;
+	public static final int SWORD = 1;
+	public static final int CROSS = 2;
+	public static final int KNUCKLE = 3;
+	
 	public static final int ARMOR = 2;
 	public static final int ACCESSORY = 3;
 	private String name;

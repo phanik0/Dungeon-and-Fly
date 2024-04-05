@@ -13,8 +13,9 @@ public abstract class Unit {
 	private Item accessory;
 	private String name;
 	private String job;
+	private String guildName;
 	private String state = "³ë¸»";
-
+	
 	public Unit() {
 	}
 	public Unit(String name) {
@@ -35,15 +36,17 @@ public abstract class Unit {
 		armor = null;
 		accessory = null;
 	}
-	public Unit(String name, int max, int damage,int def,boolean isParty) {
+	public Unit(String name, int max, int damage,int def,String job,boolean isParty,String guildName) {
 		this.name = name;
 		this.maxHp = max;
 		this.hp = max;
 		this.damage = damage;
 		this.def = def;
+		this.job = job;
 		this.level = 1;
 		this.exp = 0;
 		this.isParty = isParty;
+		this.guildName = guildName;
 		weapon = null;
 		armor = null;
 		accessory = null;
@@ -115,6 +118,21 @@ public abstract class Unit {
 	public void setAccessory(Item accessory) {
 		this.accessory = accessory;
 	}
+	
+	
+	public String getJob() {
+		return job;
+	}
+	public void setJob(String job) {
+		this.job = job;
+	}
+	public String getGuildName() {
+		return guildName;
+	}
+	public void setGuildName(String guildName) {
+		this.guildName = guildName;
+	}
+	
 	public void init(int max, int damage) {
 		this.maxHp = max;
 		this.hp = max;

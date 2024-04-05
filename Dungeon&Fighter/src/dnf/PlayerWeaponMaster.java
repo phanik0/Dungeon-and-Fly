@@ -7,7 +7,7 @@ public class PlayerWeaponMaster extends Player {
 		// TODO Auto-generated constructor stub
 	}
 	PlayerWeaponMaster(String name,boolean isParty) {
-		super(name, 1200, 120,60,"검신",isParty);
+		super(name, 1200, 120,60,"검신",isParty,"RISING");
 		// TODO Auto-generated constructor stub
 	}
 

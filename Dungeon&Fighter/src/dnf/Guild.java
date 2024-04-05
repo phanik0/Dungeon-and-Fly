@@ -10,6 +10,7 @@ public class Guild {
 	private final int PARTY_SIZE = 4;
 	public ArrayList<Player> guildMember = new ArrayList<>();
 	public Player[] partyList;
+	private String guildName;
 
 //길드목록 출력
 //길드원 추가
@@ -17,8 +18,9 @@ public class Guild {
 // 파티원 교체
 //정렬
 	private void setGuild() {
-		for (int i = 0; i < UnitManager.player_list.size(); i++) {
-			Player player = UnitManager.player_list.get(i);
+		guildName = "RISING";
+		for (int i = 0; i < UnitManager.playerList.size(); i++) {
+			Player player = UnitManager.playerList.get(i);
 			guildMember.add(player);
 		}
 		partyList = new Player[PARTY_SIZE];
@@ -88,8 +90,10 @@ public class Guild {
 		System.out.println(player + "가 길드가입을 신청했습니다");
 		System.out.println("수락하시겠습니까? [Y/N]");
 		String ans = scan.next();
-		if (ans.equals("Y"))
+		if (ans.equals("Y")) {
 			guildMember.add(player);
+			UnitManager.playerList.add(player);
+		}
 		else if (ans.equals("N"))
 			System.out.println("가입을 거절했습니다");
 	}

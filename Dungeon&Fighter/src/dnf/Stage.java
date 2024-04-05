@@ -9,7 +9,7 @@ public abstract class Stage {
 	public Stage() {
 		isClear = false;
 		playerList = null;
-		playerList = UnitManager.player_list;
+		playerList = UnitManager.playerList;
 	}
 	public boolean getIsClear() {
 		return isClear;
