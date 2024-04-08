@@ -10,7 +10,7 @@ public class UnitManager {
 	private String path = "dnf."; // 패키지명 + .
 	private String commonMonster[] = { "MonsterHollowZombie", "MonsterImposter", "MonsterPioneers" };
 	private Random ran = new Random();
-	
+	public Player player = new Player();
 	
 	public void init() {
 		playerList.add(new PlayerStriker("GunB",true));

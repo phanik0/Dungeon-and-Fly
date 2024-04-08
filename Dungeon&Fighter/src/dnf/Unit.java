@@ -157,6 +157,7 @@ public abstract class Unit {
 		}
 		enemy.setHp(hp);
 	}
+	public abstract void skill(Unit unit);
 	
 	@Override
 	public String toString() {

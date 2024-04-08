@@ -25,9 +25,13 @@ public class FileData {
 	}
 
 	public void saveData() throws IOException {
-		playerList = UnitManager.playerList;
+		setFile();
+		playerList = Stage.playerList;
 		String gameData = setData();
-		// 플레이어 인포
+		file = new File(fileName);
+		fw= new FileWriter(file);
+		fw.write(gameData);
+		fw.close();
 
 	}
 
@@ -41,6 +45,8 @@ public class FileData {
 
 	private String playerData() {
 		String playerData = "";
+		playerData += "PlayerInfo";
+		playerData += "\n";
 		playerData += Inventory.gold;
 		playerData += "\n";
 		for (int i = 0; i < playerList.size(); i++) {
@@ -48,7 +54,6 @@ public class FileData {
 			Item weapon = player.getWeapon();
 			Item armor = player.getArmor();
 			Item accessroy = player.getAccessory();
-			playerData += "PlayerInfo";
 			// 이름,맥피,데미지,방어력,직업,파티,길드,레벨, 경험치
 			playerData += player.getName();
 			playerData += ",";
@@ -118,6 +123,9 @@ public class FileData {
 			inven += "\n";
 		}
 		return inven;
+	}
+	public void loadData() {
+		
 	}
 
 }

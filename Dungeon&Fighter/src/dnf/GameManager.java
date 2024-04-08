@@ -3,12 +3,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.Vector;
 
 public class GameManager {
 	private Random ran = new Random();
 	protected static Scanner scan = new Scanner(System.in);
 	protected static String nextStage = "";
 	private String curStage = "";
+	public static Vector<Player> playerList;
 	private Map<String, Stage> stageList = new HashMap<String, Stage>();
 	private Inventory inven;
 	public GameManager() {
@@ -24,6 +26,7 @@ public class GameManager {
 
 		nextStage = "TITLE";
 		inven = new Inventory();
+		playerList = UnitManager.playerList;
 	}
 	
 	public boolean changeStage() {

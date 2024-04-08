@@ -1,6 +1,6 @@
 package dnf;
 
-public class MonsterKhazan extends Unit{
+public class MonsterKhazan extends Monster{
 	public MonsterKhazan() {
 		super("社瑚税重 朝接",5000,100,40);
 

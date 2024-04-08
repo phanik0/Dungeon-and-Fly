@@ -21,7 +21,7 @@ public class StageCommonMonsterBattle extends Stage {
 		unitManager.monsterList.clear();
 		unitManager.setCommonMonster(4);
 		playerList = null;
-		playerList = Stage.playerList;
+		playerList = GameManager.playerList;
 		monList = null;
 		monList = unitManager.monsterList;
 		monDead = monList.size();

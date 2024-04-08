@@ -16,13 +16,13 @@ public class StageLobby extends Stage {
 				break;
 			} else if (sel == 2) {
 				shop.shopManager();
-				break;
+
 			} else if (sel == 3) {
-				//manager.player.inventoryMenu();
+				manager.player.inventoryMenu();
+
 				break;
 			} else if (sel == 4) {
-				//manager.player.guildMenu();
-				break;
+				manager.player.guildMenu();
 
 			} else if (sel == 5) {
 				GameManager.nextStage = "SETTING";
@@ -33,7 +33,7 @@ public class StageLobby extends Stage {
 				break;
 			}
 		}
-		
+
 		return false;
 	}
 
@@ -117,6 +117,7 @@ public class StageLobby extends Stage {
 	public void init() {
 		// TODO Auto-generated method stub
 		shop = new Shop();
+		manager = new UnitManager();
 	}
 
 }
