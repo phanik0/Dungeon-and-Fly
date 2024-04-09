@@ -4,11 +4,11 @@ public class PlayerStriker extends Player{
 
 	public PlayerStriker(String name) {
 		super(name, 1200, 120,60,"패황");
-		this.setPlayerWeapon(Item.BOXING_GLOVE);
+		this.setJobWeapon(Item.BOXING_GLOVE);
 	}
 	public PlayerStriker(String name,boolean isParty) {
 		super(name, 1200, 120,60,"패황",isParty,"RISING");
-		this.setPlayerWeapon(Item.BOXING_GLOVE);
+		this.setJobWeapon(Item.BOXING_GLOVE);
 	}
 
 	@Override

@@ -1,7 +1,7 @@
 package dnf;
 public class Player extends Unit {
 	private int attackGauge;
-	private int playerWeapon;
+	private int jobWeapon;
 	public static int gold;
 	static Guild guild = new Guild();
 	static Inventory inven = new Inventory();
@@ -11,15 +11,17 @@ public class Player extends Unit {
 	public Player(String name, int maxHp, int damage,int def,String job) {
 		super(name, maxHp, damage,def,job);
 		attackGauge = 0;
-		playerWeapon = 0;
+		jobWeapon = 0;
 	}
+	
 	public Player(String name, int maxHp, int damage,int def,String job,boolean isParty,String guildName) {
 		super(name, maxHp, damage,def,job,isParty,guildName);
 		attackGauge = 0;
 	}
-	public Player(String name, int maxHp, int damage,int def,String job,boolean isParty,String guildName,int level, int exp) {
+	public Player(String name, int maxHp, int damage,int def,String job,boolean isParty,String guildName,int level, int exp , int jobWeapon) {
 		super(name, maxHp, damage,def,job,isParty,guildName,level,exp);
 		attackGauge = 0;
+		this.jobWeapon = jobWeapon;
 	}
 	
 	public int getAttackGauge() {
@@ -28,11 +30,11 @@ public class Player extends Unit {
 	public void setAttackGauge(int attackGauge) {
 		this.attackGauge = attackGauge;
 	}
-	public int getPlayerWeapon() {
-		return playerWeapon;
+	public int getJobWeapon() {
+		return jobWeapon;
 	}
-	public void setPlayerWeapon(int playerWeapon) {
-		this.playerWeapon = playerWeapon;
+	public void setJobWeapon(int jobWeapon) {
+		this.jobWeapon = jobWeapon;
 	}
 	public void getGuildMember() {
 		

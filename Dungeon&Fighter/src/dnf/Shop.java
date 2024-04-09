@@ -98,7 +98,7 @@ public class Shop {
 	private void printWeaponMenu() {
 		System.out.println("[1. 리볼버 ]");
 		System.out.println("[2. 십자가 ]");
-		System.out.println("[3. 광검 ]");
+		System.out.println("[3. 검 ]");
 		System.out.println("[4. 너클 ]");
 		System.out.println("[5. 권투글러브 ]");
 		System.out.println("[0. 뒤로가기]");
@@ -113,9 +113,9 @@ public class Shop {
 			if (sel == 1)
 				temp = gun;
 			else if (sel == 2)
-				temp = sword;
-			else if (sel == 3)
 				temp = cross;
+			else if (sel == 3)
+				temp = sword;
 			else if (sel == 4)
 				temp = knuckle;
 			else if (sel == 5)
@@ -166,6 +166,13 @@ public class Shop {
 			Inventory.myArmor.add(item);
 		else if(sel == 3)
 			Inventory.myAccessory.add(item);
+		Inventory.gold -= item.getPrice();
+        System.out.println("[" + item.getName()+ "] 을 구입했습니다.");
+        try {
+          Thread.sleep(1000);
+        } catch (InterruptedException e) {
+          e.printStackTrace();
+        }
 	}
 
 }
