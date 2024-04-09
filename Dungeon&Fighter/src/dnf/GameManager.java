@@ -1,4 +1,5 @@
 package dnf;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -8,11 +9,12 @@ import java.util.Vector;
 public class GameManager {
 	private Random ran = new Random();
 	protected static Scanner scan = new Scanner(System.in);
+	public static ArrayList<Player> playerList;
+	private Map<String, Stage> stageList = new HashMap<String, Stage>();
+	private UnitManager manager;
+	private Inventory inven;
 	protected static String nextStage = "";
 	private String curStage = "";
-	public static Vector<Player> playerList;
-	private Map<String, Stage> stageList = new HashMap<String, Stage>();
-	private Inventory inven;
 	public GameManager() {
 		
 		stageList.put("SETTING", new StageSetting());
@@ -26,7 +28,10 @@ public class GameManager {
 
 		nextStage = "TITLE";
 		inven = new Inventory();
+		manager = new UnitManager();
+		manager.init();
 		playerList = UnitManager.playerList;
+
 	}
 	
 	public boolean changeStage() {

@@ -1,11 +1,12 @@
 package dnf;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Vector;
 
 public class UnitManager {
 
-	protected static Vector<Player> playerList = new Vector<>();
+	protected static ArrayList<Player> playerList = new ArrayList<>();
 	public Vector<Monster> monsterList = new Vector<>();
 	private String path = "dnf."; // 패키지명 + .
 	private String commonMonster[] = { "MonsterHollowZombie", "MonsterImposter", "MonsterPioneers" };

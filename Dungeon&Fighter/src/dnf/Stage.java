@@ -4,7 +4,7 @@ import java.util.Vector;
 
 public abstract class Stage {
 	
-	public static int stageClearCount =2;
+	public static int stageClearCount = 2;
 	public Stage() {
 	
 	

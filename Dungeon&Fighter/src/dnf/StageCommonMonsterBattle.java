@@ -1,5 +1,6 @@
 package dnf;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.Vector;
@@ -8,7 +9,7 @@ public class StageCommonMonsterBattle extends Stage {
 	private Scanner scan = new Scanner(System.in);
 	private Random ran = new Random();
 	private UnitManager unitManager = new UnitManager();
-	private Vector<Player> playerList;
+	private ArrayList<Player> playerList;
 	private Vector<Monster> monList;
 	public static int name;
 	public static boolean dooms;

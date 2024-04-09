@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.Vector;
 
-public class StageAstaros extends Stage {
+public class StageAstaros extends Stage{
 	public static boolean isAstarosClear;
 	private Scanner scan = new Scanner(System.in);
 	private Random ran = new Random();
@@ -14,7 +14,7 @@ public class StageAstaros extends Stage {
 	private int playerDead;
 
 	public void init() {
-		playerDead = Stage.playerList.size();
+		playerDead = GameManager.playerList.size();
 		astaros = new MonsterAstaros();
 		monDead = 1;
 	}
@@ -35,8 +35,8 @@ public class StageAstaros extends Stage {
 		System.out.println("======[BATTLE]======");
 		// System.out.println(playerSize + " " + monSize);
 		System.out.println("======[PLAYER]======");
-		for (int i = 0; i < Stage.playerList.size(); i++) {
-			Player player = Stage.playerList.get(i);
+		for (int i = 0; i < GameManager.playerList.size(); i++) {
+			Player player = GameManager.playerList.get(i);
 			System.out.println(player);
 		}
 		System.out.println("======[MONSTER]======");
@@ -44,7 +44,7 @@ public class StageAstaros extends Stage {
 	}
 
 	private void attackPlayer(int index) {
-		Player player = Stage.playerList.get(index);
+		Player player = GameManager.playerList.get(index);
 		if (player.getHp() <= 0)
 			return;
 		System.out.println("======[메뉴 선택]=====");
@@ -66,9 +66,9 @@ public class StageAstaros extends Stage {
 		if (astaros.getHp() <= 0)
 			return;
 		while (true) {
-			int idx = ran.nextInt(Stage.playerList.size());
-			if (Stage.playerList.get(idx).getHp() > 0) {
-				astaros.attack(Stage.playerList.get(idx));// 몬스터도 게이지 차면 스킬쓰기
+			int idx = ran.nextInt(GameManager.playerList.size());
+			if (GameManager.playerList.get(idx).getHp() > 0) {
+				astaros.attack(GameManager.playerList.get(idx));// 몬스터도 게이지 차면 스킬쓰기
 				break;
 			}
 		}
@@ -76,12 +76,12 @@ public class StageAstaros extends Stage {
 
 	private void check_live() {
 		int num = 0;
-		for (int i = 0; i < Stage.playerList.size(); i++) {
-			if (Stage.playerList.get(i).getHp() <= 0) {
+		for (int i = 0; i < GameManager.playerList.size(); i++) {
+			if (GameManager.playerList.get(i).getHp() <= 0) {
 				num += 1;
 			}
 		}
-		playerDead = Stage.playerList.size() - num;
+		playerDead = GameManager.playerList.size() - num;
 		num = 0;
 
 		if (astaros.getHp() <= 0) {
@@ -100,7 +100,7 @@ public class StageAstaros extends Stage {
 			// print_character();
 			if (turn) {
 				print_character();
-				if (p_index < StageSetting.playerList.size()) {
+				if (p_index < GameManager.playerList.size()) {
 					attackPlayer(p_index);
 
 					p_index += 1;

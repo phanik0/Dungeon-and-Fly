@@ -15,6 +15,10 @@ public class Player extends Unit {
 		super(name, maxHp, damage,def,job,isParty,guildName);
 		attackGauge = 0;
 	}
+	public Player(String name, int maxHp, int damage,int def,String job,boolean isParty,String guildName,int level, int exp) {
+		super(name, maxHp, damage,def,job,isParty,guildName,level,exp);
+		attackGauge = 0;
+	}
 	public void getGuildMember() {
 		
 	}

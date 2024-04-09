@@ -51,6 +51,21 @@ public abstract class Unit {
 		armor = null;
 		accessory = null;
 	}
+	public Unit(String name, int max, int damage,int def,String job,boolean isParty,String guildName,int level,int exp) {
+		this.name = name;
+		this.maxHp = max;
+		this.hp = max;
+		this.damage = damage;
+		this.def = def;
+		this.job = job;
+		this.level = level;
+		this.exp = exp;
+		this.isParty = isParty;
+		this.guildName = guildName;
+		weapon = null;
+		armor = null;
+		accessory = null;
+	}
 	public int getHp() {
 		return this.hp;
 	}
