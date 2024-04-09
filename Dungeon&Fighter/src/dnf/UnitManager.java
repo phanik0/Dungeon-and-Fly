@@ -20,6 +20,11 @@ public class UnitManager {
 		playerList.add(new PlayerWeaponMaster("·¹³ì¸óÂ÷",true));
 		
 	}
+	public static void printAllPlayer() {
+		for(int i = 0 ; i <playerList.size();i++) {
+			System.out.println(playerList.get(i));
+		}
+	}
 	public void setCommonMonster(int size) {
 		for (int i = 0; i < size; i++) {
 			int num = ran.nextInt(commonMonster.length);

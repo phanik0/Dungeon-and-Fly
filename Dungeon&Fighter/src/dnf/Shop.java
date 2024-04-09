@@ -10,6 +10,7 @@ public class Shop {
 	public ArrayList<Item> cross = new ArrayList<>();
 	public ArrayList<Item> knuckle = new ArrayList<>();
 	public ArrayList<Item> sword = new ArrayList<>();
+	public ArrayList<Item> boxingGlove = new ArrayList<>();
 
 	public ArrayList<Item> armor = new ArrayList<>();
 	public ArrayList<Item> accessory = new ArrayList<>();
@@ -21,6 +22,8 @@ public class Shop {
 		sword.add(new Item(Item.SWORD, 10, "빛이 바랜 광검", 800));// 무기
 		knuckle.add(new Item(Item.KNUCKLE, 10, "낡은 가죽 너클", 700));// 무기
 		knuckle.add(new Item(Item.KNUCKLE, 10, "녹슨 너클", 700));// 무기
+		boxingGlove.add(new Item(Item.BOXING_GLOVE, 10, "녹슨 너클", 700));// 무기
+		boxingGlove.add(new Item(Item.BOXING_GLOVE, 10, "녹슨 너클", 700));// 무기
 		gun.add(new Item(Item.GUN, 10, "낡은 리볼버", 800));// 무기
 		gun.add(new Item(Item.GUN, 10, "낡은 자동권총", 800));// 무기
 		gun.add(new Item(Item.GUN, 10, "낡은 머스켓", 800));// 무기
@@ -30,6 +33,7 @@ public class Shop {
 		weapon.add(cross);
 		weapon.add(knuckle);
 		weapon.add(sword);
+		weapon.add(boxingGlove);
 
 	}
 
@@ -57,16 +61,16 @@ public class Shop {
 			if (sel != Item.WEAPON) {
 				printItemList(sel);
 				index = inputNumber("구매할 아이템을 선택해주세요") - 1;
-				if(index == -1)
+				if (index == -1)
 					continue;
 			}
 			Item item = null;
-			if (sel == Item.WEAPON) {
+			if (sel == 1) {
 				runWeaponMenu();
-			} else if (sel == Item.ARMOR) {
+			} else if (sel == 2) {
 				item = armor.get(index);
 
-			} else if (sel == Item.ACCESSORY) {
+			} else if (sel == 3) {
 				item = accessory.get(index);
 			} else if (sel == 0)
 				break;
@@ -98,20 +102,19 @@ public class Shop {
 			printWeaponMenu();
 			int sel = inputNumber("무기 종류를 골라주세요");
 			ArrayList<Item> temp = null;
-			if (sel == Item.GUN)
+			if (sel == 1)
 				temp = gun;
 
-			else if (sel == Item.SWORD)
+			else if (sel == 2)
 				temp = sword;
-			else if (sel == Item.CROSS)
+			else if (sel == 3)
 				temp = cross;
-
-			else if (sel == Item.KNUCKLE)
+			else if (sel == 4)
 				temp = knuckle;
-
+			else if (sel == 5)
+				temp = boxingGlove;
 			else if (sel == 0)
 				break;
-
 			else
 				continue;
 

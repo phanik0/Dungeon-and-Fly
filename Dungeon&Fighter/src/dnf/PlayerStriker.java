@@ -4,15 +4,14 @@ public class PlayerStriker extends Player{
 
 	public PlayerStriker(String name) {
 		super(name, 1200, 120,60,"ÆÐÈ²");
-		// TODO Auto-generated constructor stub
+		this.setPlayerWeapon(Item.BOXING_GLOVE);
 	}
 	public PlayerStriker(String name,boolean isParty) {
 		super(name, 1200, 120,60,"ÆÐÈ²",isParty,"RISING");
-		// TODO Auto-generated constructor stub
+		this.setPlayerWeapon(Item.BOXING_GLOVE);
 	}
 
 	@Override
-	
 	public void skill(Unit unit) {
 		System.out.println("[1] È­¿°ÀÇ °¢(attack gauge:20) [2] ÇíÅäÆÄ½ºÄ® Å±(attack gauge:10)");
 		int hp = unit.getHp();

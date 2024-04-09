@@ -14,17 +14,14 @@ public class StageLobby extends Stage {
 				printDungeon();
 				selectDungeon();
 				break;
-			} else if (sel == 2) {
+			} else if (sel == 2)
 				shop.shopManager();
 
-			} else if (sel == 3) {
+			else if (sel == 3)
 				manager.player.inventoryMenu();
-
-				break;
-			} else if (sel == 4) {
+			else if (sel == 4)
 				manager.player.guildMenu();
-
-			} else if (sel == 5) {
+			else if (sel == 5) {
 				GameManager.nextStage = "SETTING";
 				break;
 
