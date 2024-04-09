@@ -18,17 +18,24 @@ public class Shop {
 	public Shop() {
 		cross.add(new Item(Item.CROSS, 10, "나무 십자가", 1000));// 무기
 		cross.add(new Item(Item.CROSS, 10, "청동십자가", 1200));// 무기
+			
 		sword.add(new Item(Item.SWORD, 10, "녹슨 청동검", 800));// 무기
 		sword.add(new Item(Item.SWORD, 10, "빛이 바랜 광검", 800));// 무기
+
 		knuckle.add(new Item(Item.KNUCKLE, 10, "낡은 가죽 너클", 700));// 무기
 		knuckle.add(new Item(Item.KNUCKLE, 10, "녹슨 너클", 700));// 무기
-		boxingGlove.add(new Item(Item.BOXING_GLOVE, 10, "녹슨 너클", 700));// 무기
-		boxingGlove.add(new Item(Item.BOXING_GLOVE, 10, "녹슨 너클", 700));// 무기
+		
+		boxingGlove.add(new Item(Item.BOXING_GLOVE, 10, "견습 글러브", 700));// 무기
+		boxingGlove.add(new Item(Item.BOXING_GLOVE, 10, "헤진 글러브", 700));// 무기
+		
 		gun.add(new Item(Item.GUN, 10, "낡은 리볼버", 800));// 무기
 		gun.add(new Item(Item.GUN, 10, "낡은 자동권총", 800));// 무기
 		gun.add(new Item(Item.GUN, 10, "낡은 머스켓", 800));// 무기
+
 		armor.add(new Item(Item.ARMOR, "낡은 가죽자켓", 15, 500));// 무기
+	
 		accessory.add(new Item(Item.ACCESSORY, "풀꽃반지", 5, 8, 600));// 무기
+	
 		weapon.add(gun);
 		weapon.add(cross);
 		weapon.add(knuckle);
@@ -93,6 +100,7 @@ public class Shop {
 		System.out.println("[2. 십자가 ]");
 		System.out.println("[3. 광검 ]");
 		System.out.println("[4. 너클 ]");
+		System.out.println("[5. 권투글러브 ]");
 		System.out.println("[0. 뒤로가기]");
 
 	}
@@ -104,7 +112,6 @@ public class Shop {
 			ArrayList<Item> temp = null;
 			if (sel == 1)
 				temp = gun;
-
 			else if (sel == 2)
 				temp = sword;
 			else if (sel == 3)
@@ -155,9 +162,10 @@ public class Shop {
 			System.err.println("골드가 부족합니다");
 			return;
 		}
-		ArrayList<Item> temp = null;
-		temp = sel == Item.ARMOR ? armor : accessory;
-		temp.add(item);
+		if(sel == 2)
+			Inventory.myArmor.add(item);
+		else if(sel == 3)
+			Inventory.myAccessory.add(item);
 	}
 
 }

@@ -77,7 +77,11 @@ public class FileData {
 			playerData += player.getIsParty();
 			playerData += "/";
 			playerData += player.getGuildName();
-			playerData += "\n";
+			playerData += "/";
+			playerData += player.getLevel();
+			playerData += "/";
+			playerData += player.getExp();
+			playerData += "/";
 			if (weapon != null) {
 				weaponData += weapon.getName();
 				weaponData += ",";
@@ -88,7 +92,7 @@ public class FileData {
 				weaponData += weapon.getPrice();
 				playerData += weaponData;
 			} else
-				weaponData += weapon;
+				playerData += weapon;
 			playerData += "/";
 			if (armor != null) {
 				armorData += armor.getName();
@@ -100,7 +104,7 @@ public class FileData {
 				armorData += armor.getPrice();
 				playerData += armorData;
 			} else
-				armorData += armor;
+				playerData += armor;
 			playerData += "/";
 			if (armor != null) {
 				accessoryData += accessory.getName();
@@ -114,8 +118,8 @@ public class FileData {
 				accessoryData += accessory.getPrice();
 				playerData += accessoryData;
 			} else
-				accessoryData += accessory;
-			playerData += "/";
+				playerData += accessory;
+			playerData += "\n";
 		}
 		return playerData;
 	}
@@ -140,9 +144,9 @@ public class FileData {
 		// 방어구
 		inven += "Armor";
 		inven += "\n";
-		for (int i = 0; i < Inventory.myWeapon.size(); i++) {
+		for (int i = 0; i < Inventory.myArmor.size(); i++) {
 			// 이름 종류 방어력 가격
-			Item item = Inventory.myWeapon.get(i);
+			Item item = Inventory.myArmor.get(i);
 			inven += item.getName();
 			inven += "/";
 			inven += item.getKind();
@@ -153,11 +157,11 @@ public class FileData {
 			inven += "\n";
 		}
 		// 장신구
-		inven += "Accessroy";
+		inven += "Accessory";
 		inven += "\n";
-		for (int i = 0; i < Inventory.myWeapon.size(); i++) {
+		for (int i = 0; i < Inventory.myAccessory.size(); i++) {
 			// 이름 종류 데미지 방어력 가격
-			Item item = Inventory.myWeapon.get(i);
+			Item item = Inventory.myAccessory.get(i);
 			inven += item.getName();
 			inven += "/";
 			inven += item.getKind();
@@ -172,34 +176,42 @@ public class FileData {
 		return inven;
 	}
 
-	public void loadData() throws IOException {
+	public void loadData()  {
 		setFile();
 		String playerInfo = "";
 		String itemInfo = "";
-
-		if (file.exists()) {
-			fr = new FileReader(file);
-			br = new BufferedReader(fr);
-			resetData();
-			Inventory.gold = Integer.parseInt(br.readLine());
-
-			while (br.ready()) {
-				String line = br.readLine();
-				if (checkData(line))
-					changeData = true;
-				setLoadData(line);
+		try {
+			if (file.exists()) {
+				fr = new FileReader(file);
+				br = new BufferedReader(fr);
+				resetData();
+				Inventory.gold = Integer.parseInt(br.readLine());
+				
+				while (br.ready()) {
+					String line = br.readLine();
+					System.out.println(line);
+					if (checkData(line))
+						continue;
+					setLoadData(line);
 //				if (changeData) {
 //					ArrayList temp =changeArrayList(line);
 //				}
-				
+					
+				}
+				fr.close();
+				br.close();
+				System.out.println("로드성공");
 			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println("로드실패");
 		}
 
 	}
 
 	private void resetData() {
 		GameManager.playerList.clear();
-		;
+		
 		Inventory.myWeapon.clear();
 		Inventory.myArmor.clear();
 		Inventory.myAccessory.clear();
@@ -207,20 +219,20 @@ public class FileData {
 
 	private boolean checkData(String line) {
 		if (line.equals("PlayerInfo")) {
-			isPlayer = true;
+			this.isPlayer = true;
 			return true;
 		} else if (line.equals("Weapon")) {
-			isPlayer = false;
-			isWeapon = true;
+			this.isPlayer = false;
+			this.isWeapon = true;
 			return true;
 
 		} else if (line.equals("Armor")) {
-			isWeapon = false;
-			isArmor = true;
+			this.isWeapon = false;
+			this.isArmor = true;
 			return true;
 		} else if (line.equals("Accessory")) {
-			isArmor = false;
-			isAccessory = true;
+			this.isArmor = false;
+			this.isAccessory = true;
 			return true;
 		}
 		return false;
@@ -266,11 +278,39 @@ public class FileData {
 		int exp = Integer.parseInt(temp[8]);
 		Player player = new Player(name, maxHp, damage, def, job, party, guildName, level, exp);
 		GameManager.playerList.add(player);
-		if (temp[9] != null) {
+		
+		if (!(temp[9]).equals("null")) {
 			// 이름 종류 데미지 가격
 			String[] weaponData = temp[9].split(",");
-
+			String weaponName = weaponData[0];
+			int kind = Integer.parseInt(weaponData[1]);
+			int weaponDamage = Integer.parseInt(weaponData[2]);
+			int price = Integer.parseInt(weaponData[3]);
+			Item weapon = new Item(kind,weaponDamage,weaponName,price);
+			player.setWeapon(weapon);
 		}
+		if (!(temp[10]).equals("null")) {
+			// 이름 종류 데미지 가격
+			String[] armorData = temp[9].split(",");
+			String armorName = armorData[0];
+			int kind = Integer.parseInt(armorData[1]);
+			int armorDef= Integer.parseInt(armorData[2]);
+			int price = Integer.parseInt(armorData[3]);
+			Item armor = new Item(kind,armorName,armorDef,price);
+			player.setArmor(armor);
+		}
+		if (!(temp[11]).equals("null")) {
+			// 이름 종류 데미지 가격
+			String[] accessoryData = temp[9].split(",");
+			String accessoryName = accessoryData[0];
+			int kind = Integer.parseInt(accessoryData[1]);
+			int accessoryDamage = Integer.parseInt(accessoryData[2]);
+			int accessoryDef = Integer.parseInt(accessoryData[3]);
+			int price = Integer.parseInt(accessoryData[4]);
+			Item accessory = new Item(kind,accessoryName,accessoryDamage,accessoryDef,price);
+			player.setAccessory(accessory);
+		}
+		
 	}
 
 	private void setWeaponData(String line) {

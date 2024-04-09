@@ -65,7 +65,7 @@ public class Inventory {
 				ArrayList<Item> temp = selectItemSort(menu);
 
 				for (int i = 0; i < temp.size(); i++) {
-					System.out.printf("%d\n" + temp.get(i), i + 1);
+					System.out.printf("%d. " + temp.get(i)+"\n", i + 1);
 				}
 				int index = inputNumber("착용할 아이템을 선택해주세요") - 1;
 
@@ -79,6 +79,7 @@ public class Inventory {
 					continue;
 				}
 				addItem(player, item, menu);
+				temp.remove(index);
 				break;
 			}
 			return;
@@ -102,9 +103,7 @@ public class Inventory {
 		} else if (menu == Item.ACCESSORY) {
 			temp = myAccessory;
 		}
-		for (int i = 0; i < temp.size(); i++) {
-			System.out.printf("%d\n" + temp.get(i), i + 1);
-		}
+		
 		return temp;
 	}
 
@@ -116,6 +115,8 @@ public class Inventory {
 		} else if (menu == Item.ACCESSORY) {
 			player.setAccessory(item);
 		}
+		player.setDamage(player.getDamage()+item.getDamage());
+		player.setDef(player.getDef()+item.getDef());
 	}
 
 	private void sellMenu() {

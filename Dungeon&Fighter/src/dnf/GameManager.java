@@ -29,7 +29,6 @@ public class GameManager {
 		nextStage = "TITLE";
 		inven = new Inventory();
 		manager = new UnitManager();
-		manager.init();
 		playerList = UnitManager.playerList;
 
 	}

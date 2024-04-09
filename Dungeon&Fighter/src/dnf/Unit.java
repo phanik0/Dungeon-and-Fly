@@ -176,6 +176,9 @@ public abstract class Unit {
 	
 	@Override
 	public String toString() {
+		if(weapon!= null || armor!= null || accessory != null)
+			return String.format("[닉네임: %s][HP : %d/%d][공격력 : %d][방어력 : %d][직업 : %s][lv : %d]",
+					name,hp,maxHp,damage,def,job,level);
 		return String.format("[닉네임: %s][HP : %d/%d][공격력 : %d][방어력 : %d][직업 : %s][lv : %d]",
 				name,hp,maxHp,damage,def,job,level);
 	}
